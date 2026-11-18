@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
     Author: Phu Thanh Nguyen
-    GU username: YOUR-GU-USERNAME
+    GU username: pnguyen11
     Course: BMIS 235 - HTML-3
 -->
 <html lang="en">
@@ -12,9 +12,9 @@
     <title>Home | My Top 3 Vietnamese Dishes</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
 
-    <!-- Menu: Each image links to one page. -->
+<body>
+    <!-- Menu: Each image opens one page of the site. -->
     <nav aria-label="Main menu">
         <a href="index.html" aria-current="page"><img src="img/home.png" alt="Home"></a>
         <a href="page1.html"><img src="img/page1.png" alt="Com Tam"></a>
@@ -25,16 +25,27 @@
     <main>
         <h1>My Top 3 Vietnamese Dishes</h1>
 
-        <div class="showcase">
+        <p>
+            I grew up in southern Vietnam, and Com Tam, Pho, and Bun Cha are three
+            dishes that remind me of home. Pick a dish from the menu above to learn
+            what goes into it and why I love it.
+        </p>
 
-            <!-- HTML: Read the kitchen ticket and choose the dish to serve. -->
+        <p>
+            Think you can tell the three dishes apart? Try the game below.
+            Have a favorite Vietnamese dish I should try?
+            <a href="mailto:pnguyen11@zagmail.gonzaga.edu">Email me</a>.
+        </p>
+
+        <div class="showcase">
+            <!-- HTML: Read the kitchen ticket and choose a dish. -->
             <section class="order-game" aria-labelledby="game-title">
                 <div class="game-top">
                     <h2 class="game-title" id="game-title">Guess the Order</h2>
                     <span class="game-score">Score 0 / 3</span>
                 </div>
 
-                <div class="game-hint">Read the ticket. Which dish would you serve?</div>
+                <div class="game-hint">Three customers, three orders. Which dish would you serve?</div>
 
                 <div class="game-ticket">
                     <div class="ticket-number">Kitchen ticket 01 / 03</div>
@@ -57,10 +68,10 @@
                 .showcase .order-game {
                     box-sizing: border-box;
                     width: 100%;
-                    max-width: 590px;
+                    max-width: 600px;
                     max-height: 480px;
                     overflow: auto;
-                    margin: 0 auto;
+                    margin: 24px auto;
                     padding: clamp(16px, 4vw, 28px);
                     border-radius: 18px;
                     background: #10475a;
@@ -98,6 +109,7 @@
                     margin-top: 8px;
                     color: #e5f0ee;
                     font-size: 15px;
+                    line-height: 1.4;
                 }
 
                 .showcase .game-ticket {
@@ -135,7 +147,7 @@
                 .showcase .order-game button {
                     min-height: 44px;
                     padding: 8px 4px;
-                    border: 2px solid transparent;
+                    border: 0;
                     border-radius: 8px;
                     font: bold 15px Arial, Helvetica, sans-serif;
                     cursor: pointer;
@@ -170,7 +182,7 @@
                 }
 
                 .showcase .game-next {
-                    margin-top: 8px;
+                    margin-top: 6px;
                     background: transparent;
                     color: #deef9a;
                     text-decoration: underline;
@@ -178,7 +190,7 @@
                 }
             </style>
 
-            <!-- JavaScript: Mix up the orders, check each answer, and keep score. -->
+            <!-- JavaScript: Mix up the tickets, check each answer, and keep score. -->
             <script>
                 {
                     const game = document.currentScript.closest(".showcase");
@@ -193,14 +205,14 @@
                         {
                             name: "Com Tam",
                             clues: [
-                                "I'd like grilled pork over tiny grains of broken rice. A fried egg on top, please!",
-                                "I'll have the Saigon rice plate. The little broken grains are my favorite part."
+                                "I'd like grilled pork over broken rice. A fried egg on top, please!",
+                                "I'll have the Saigon rice plate. Those tiny broken grains are my favorite part."
                             ]
                         },
                         {
                             name: "Pho",
                             clues: [
-                                "I'd like flat rice noodles in hot broth. Could you add thin slices of beef?",
+                                "I'd like flat rice noodles in hot broth with thin slices of beef, please.",
                                 "One bowl of noodle soup, please. I love the smell of star anise in the broth."
                             ]
                         },
@@ -208,7 +220,7 @@
                             name: "Bun Cha",
                             clues: [
                                 "I'll have the Hanoi dish with grilled pork patties. Leave the noodles on the side so I can dip them.",
-                                "I'd like rice noodles and fresh herbs, with a separate bowl of grilled pork in sweet and sour dipping sauce."
+                                "I'd like fresh herbs and rice noodles, with grilled pork in a separate bowl of sweet and sour dipping sauce."
                             ]
                         }
                     ];
@@ -223,7 +235,7 @@
                         round = 0;
                         score = 0;
 
-                        // Pick each dish once so every game has three different orders.
+                        // Pick each dish once, in a different order each game.
                         while (remaining.length > 0) {
                             const pick = Math.floor(Math.random() * remaining.length);
                             const dish = remaining.splice(pick, 1)[0];
@@ -294,11 +306,15 @@
                     startGame();
                 }
             </script>
-
         </div>
+
+        <p>
+            Curious what else to try? Explore
+            <a href="https://vietnam.travel/things-to-do/21-must-try-vietnamese-dishes/">21 must-try Vietnamese dishes</a>
+            from Vietnam Tourism.
+        </p>
     </main>
 
     <footer>Built by Phu Thanh Nguyen &middot; BMIS 235</footer>
-
 </body>
 </html>
