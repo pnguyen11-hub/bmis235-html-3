@@ -9,229 +9,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Phu Thanh Nguyen">
-    <title>Bún Chả | My Top 3 Vietnamese Dishes</title>
+    <title>Bun Cha | My Top 3 Vietnamese Dishes</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <!-- Menu: Each image links to one page of the website. -->
+
     <nav aria-label="Main menu">
         <a href="index.html"><img src="img/home.png" alt="Home"></a>
-        <a href="page1.html"><img src="img/page1.png" alt="Cơm Tấm"></a>
-        <a href="page2.html"><img src="img/page2.png" alt="Phở"></a>
-        <a href="page3.html" aria-current="page"><img src="img/page3.png" alt="Bún Chả"></a>
+        <a href="page1.html"><img src="img/page1.png" alt="Com Tam"></a>
+        <a href="page2.html"><img src="img/page2.png" alt="Pho"></a>
+        <a href="page3.html" aria-current="page"><img src="img/page3.png" alt="Bun Cha"></a>
     </nav>
 
     <main>
-        <h1>Bún Chả</h1>
+        <h1>Bun Cha</h1>
+        <p>Grilled pork and rice noodles from Hanoi, Vietnam.</p>
+
+        <h2>What comes with it?</h2>
         <p>
-            Bún chả is a dish from Hanoi. It comes with grilled pork in a bowl
-            of sweet and sour dipping sauce, with rice noodles and fresh herbs
-            on the side.
-        </p>
-        <p>
-            What I love about bún chả is making each bite a little different.
-            I can dip a few noodles into the sauce, add a piece of smoky pork,
-            or tuck in a mint leaf for a fresh taste.
+            The grilled pork comes in a small bowl of sweet and sour dipping sauce.
+            The rice noodles and fresh herbs come on a separate plate. To eat it,
+            dip a few noodles into the bowl and pick up a piece of pork.
         </p>
 
-        <div class="showcase">
-            <!-- HTML: Pick a dish to see its tasting card. -->
-            <section class="dish-menu" aria-label="My Vietnamese menu">
-                <h2 class="menu-title">A taste of Vietnam</h2>
-                <div class="menu-hint">Pick one of my three favorite dishes.</div>
-
-                <div class="dish-buttons" role="group" aria-label="Choose a dish">
-                    <button type="button" aria-controls="card-com-tam" aria-pressed="false">
-                        Cơm Tấm
-                    </button>
-                    <button type="button" aria-controls="card-pho" aria-pressed="false">
-                        Phở
-                    </button>
-                    <button type="button" aria-controls="card-bun-cha" aria-pressed="true">
-                        Bún Chả
-                    </button>
-                </div>
-
-                <div aria-live="polite" aria-atomic="true">
-                    <div class="dish-card" id="card-com-tam" hidden>
-                        <span class="dish-plate" aria-hidden="true">🍚</span>
-                        <div>
-                            <h3 class="dish-name">Cơm Tấm</h3>
-                            <div class="dish-subtitle">Saigon-style broken rice</div>
-                            <div class="dish-fact">
-                                Look closely at the rice. The grains are small because
-                                they broke during milling. That is what gives cơm tấm
-                                its name and texture.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="dish-card" id="card-pho" hidden>
-                        <span class="dish-plate" aria-hidden="true">🍜</span>
-                        <div>
-                            <h3 class="dish-name">Phở</h3>
-                            <div class="dish-subtitle">Vietnamese noodle soup</div>
-                            <div class="dish-fact">
-                                Try a spoonful of broth before adding herbs.
-                                In beef phở, you can often smell star anise and
-                                cinnamon in the steam.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="dish-card" id="card-bun-cha">
-                        <span class="dish-plate" aria-hidden="true">🥢</span>
-                        <div>
-                            <h3 class="dish-name">Bún Chả</h3>
-                            <div class="dish-subtitle">Hanoi-style grilled pork and noodles</div>
-                            <div class="dish-fact">
-                                Look for two kinds of pork in the bowl. Bún chả often
-                                comes with both small grilled pork patties and thin
-                                slices of pork belly.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CSS: Give the graphic a striped edge and green-rimmed plates. -->
-            <style>
-                .showcase .dish-menu {
-                    --herb: #245442;
-                    --chili: #a43c29;
-                    box-sizing: border-box;
-                    width: 100%;
-                    max-width: 620px;
-                    max-height: 480px;
-                    overflow: auto;
-                    margin: 0 auto;
-                    padding: 26px clamp(14px, 4vw, 30px) 22px;
-                    border: 1px solid #d8cbb6;
-                    border-radius: 16px;
-                    background:
-                        repeating-linear-gradient(90deg, var(--herb) 0 12px, #fff8e9 12px 24px)
-                        top / 100% 7px no-repeat,
-                        #fffaf0;
-                    color: #302e26;
-                    font-family: inherit;
-                    text-align: left;
-                }
-
-                .showcase .menu-title {
-                    margin: 0;
-                    color: var(--herb);
-                    font-size: clamp(26px, 5vw, 38px);
-                    line-height: 1.15;
-                }
-
-                .showcase .menu-hint {
-                    margin-top: 5px;
-                    font-size: 15px;
-                }
-
-                .showcase .dish-buttons {
-                    display: grid;
-                    grid-template-columns: repeat(3, minmax(0, 1fr));
-                    gap: 6px;
-                    margin: 18px 0;
-                }
-
-                .showcase .dish-buttons button {
-                    min-height: 44px;
-                    padding: 6px 3px;
-                    border: 1px solid var(--herb);
-                    border-radius: 8px;
-                    background: transparent;
-                    color: var(--herb);
-                    font: inherit;
-                    font-weight: bold;
-                    cursor: pointer;
-                }
-
-                .showcase .dish-buttons button:hover {
-                    background: #e5eddf;
-                }
-
-                .showcase .dish-buttons button[aria-pressed="true"] {
-                    background: var(--herb);
-                    color: white;
-                }
-
-                .showcase .dish-buttons button:focus-visible {
-                    outline: 3px solid var(--chili);
-                    outline-offset: 2px;
-                }
-
-                .showcase .dish-card {
-                    display: grid;
-                    grid-template-columns: auto minmax(0, 1fr);
-                    align-items: start;
-                    gap: clamp(10px, 3vw, 20px);
-                    padding-top: 18px;
-                    border-top: 1px dashed #b7a88d;
-                }
-
-                .showcase .dish-card[hidden] {
-                    display: none;
-                }
-
-                .showcase .dish-plate {
-                    display: grid;
-                    place-items: center;
-                    width: clamp(44px, 10vw, 72px);
-                    aspect-ratio: 1;
-                    border: 4px double var(--herb);
-                    border-radius: 50%;
-                    background: #f1f4e8;
-                    font-size: clamp(24px, 5vw, 38px);
-                }
-
-                .showcase .dish-name {
-                    margin: 0;
-                    color: var(--chili);
-                    font-size: 24px;
-                    line-height: 1.2;
-                }
-
-                .showcase .dish-subtitle {
-                    margin: 3px 0 8px;
-                    color: var(--herb);
-                    font-size: 14px;
-                    font-weight: bold;
-                }
-
-                .showcase .dish-fact {
-                    font-size: 16px;
-                    line-height: 1.45;
-                }
-            </style>
-
-            <!-- JavaScript: Show the card that matches the button you click. -->
-            <script>
-                {
-                    const showcase = document.currentScript.closest(".showcase");
-                    const buttons = showcase.querySelectorAll(".dish-buttons button");
-                    const cards = showcase.querySelectorAll(".dish-card");
-
-                    for (const button of buttons) {
-                        button.addEventListener("click", function () {
-                            const chosenCard = button.getAttribute("aria-controls");
-
-                            for (const card of cards) {
-                                card.hidden = card.id !== chosenCard;
-                            }
-
-                            for (const item of buttons) {
-                                item.setAttribute("aria-pressed", item === button);
-                            }
-                        });
-                    }
-                }
-            </script>
-        </div>
+        <h2>Why I love it</h2>
+        <p>
+            My favorite part is the smoky edge of the grilled pork. I like to add
+            a mint leaf to my next bite so the noodles taste a little different
+            each time.
+        </p>
     </main>
 
     <footer>Built by Phu Thanh Nguyen &middot; BMIS 235</footer>
+
 </body>
 </html>
