@@ -9,110 +9,67 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Phu Thanh Nguyen">
-    <title>Bún Chả | My Top 3 Vietnamese Dishes</title>
+    <title>My Top 3 Vietnamese Dishes</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <!-- Menu: Each image links to one page of the website. -->
+
+    <!-- Menu: Each image links to one page. -->
     <nav aria-label="Main menu">
         <a href="index.html"><img src="img/home.png" alt="Home"></a>
         <a href="page1.html"><img src="img/page1.png" alt="Cơm Tấm"></a>
         <a href="page2.html"><img src="img/page2.png" alt="Phở"></a>
-        <a href="page3.html" aria-current="page"><img src="img/page3.png" alt="Bún Chả"></a>
+        <a href="page3.html"><img src="img/page3.png" alt="Bún Chả"></a>
     </nav>
 
     <main>
-        <h1>Bún Chả</h1>
-        <p>
-            Bún chả is a dish from Hanoi. It comes with grilled pork in a bowl
-            of sweet and sour dipping sauce, with rice noodles and fresh herbs
-            on the side.
-        </p>
-        <p>
-            What I love about bún chả is making each bite a little different.
-            I can dip a few noodles into the sauce, add a piece of smoky pork,
-            or tuck in a mint leaf for a fresh taste.
-        </p>
-
         <div class="showcase">
-            <!-- HTML: Pick a dish to see its tasting card. -->
-            <section class="dish-menu" aria-label="My Vietnamese menu">
+
+            <!-- HTML: Choose a dish to reveal a fun fact. -->
+            <section class="dish-menu">
                 <h2 class="menu-title">A taste of Vietnam</h2>
-                <div class="menu-hint">Pick one of my three favorite dishes.</div>
+                <div class="menu-hint">Pick a dish to discover a fun fact.</div>
 
                 <div class="dish-buttons" role="group" aria-label="Choose a dish">
-                    <button type="button" aria-controls="card-com-tam" aria-pressed="false">
+                    <button type="button" aria-pressed="false"
+                            aria-controls="dish-fact"
+                            data-fact="Cơm tấm means broken rice. The small grains give this Saigon favorite its name.">
+                        <span class="dish-icon" aria-hidden="true">🍚</span>
                         Cơm Tấm
                     </button>
-                    <button type="button" aria-controls="card-pho" aria-pressed="false">
+
+                    <button type="button" aria-pressed="false"
+                            aria-controls="dish-fact"
+                            data-fact="That warm smell rising from a bowl of beef phở often comes from star anise and cinnamon in the broth.">
+                        <span class="dish-icon" aria-hidden="true">🍜</span>
                         Phở
                     </button>
-                    <button type="button" aria-controls="card-bun-cha" aria-pressed="true">
+
+                    <button type="button" aria-pressed="false"
+                            aria-controls="dish-fact"
+                            data-fact="A bowl of bún chả often has two kinds of grilled pork. Look for small pork patties and thin slices of pork belly.">
+                        <span class="dish-icon" aria-hidden="true">🥢</span>
                         Bún Chả
                     </button>
                 </div>
 
-                <div aria-live="polite" aria-atomic="true">
-                    <div class="dish-card" id="card-com-tam" hidden>
-                        <span class="dish-plate" aria-hidden="true">🍚</span>
-                        <div>
-                            <h3 class="dish-name">Cơm Tấm</h3>
-                            <div class="dish-subtitle">Saigon-style broken rice</div>
-                            <div class="dish-fact">
-                                Look closely at the rice. The grains are small because
-                                they broke during milling. That is what gives cơm tấm
-                                its name and texture.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="dish-card" id="card-pho" hidden>
-                        <span class="dish-plate" aria-hidden="true">🍜</span>
-                        <div>
-                            <h3 class="dish-name">Phở</h3>
-                            <div class="dish-subtitle">Vietnamese noodle soup</div>
-                            <div class="dish-fact">
-                                Try a spoonful of broth before adding herbs.
-                                In beef phở, you can often smell star anise and
-                                cinnamon in the steam.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="dish-card" id="card-bun-cha">
-                        <span class="dish-plate" aria-hidden="true">🥢</span>
-                        <div>
-                            <h3 class="dish-name">Bún Chả</h3>
-                            <div class="dish-subtitle">Hanoi-style grilled pork and noodles</div>
-                            <div class="dish-fact">
-                                Look for two kinds of pork in the bowl. Bún chả often
-                                comes with both small grilled pork patties and thin
-                                slices of pork belly.
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div id="dish-fact" class="dish-fact" role="status"></div>
             </section>
 
-            <!-- CSS: Give the graphic a striped edge and green-rimmed plates. -->
+            <!-- CSS: Style the menu card, dish buttons, and selected fact. -->
             <style>
                 .showcase .dish-menu {
-                    --herb: #245442;
-                    --chili: #a43c29;
                     box-sizing: border-box;
                     width: 100%;
-                    max-width: 620px;
+                    max-width: 580px;
                     max-height: 480px;
                     overflow: auto;
                     margin: 0 auto;
-                    padding: 26px clamp(14px, 4vw, 30px) 22px;
+                    padding: 20px;
                     border: 1px solid #d8cbb6;
-                    border-radius: 16px;
-                    background:
-                        repeating-linear-gradient(90deg, var(--herb) 0 12px, #fff8e9 12px 24px)
-                        top / 100% 7px no-repeat,
-                        #fffaf0;
+                    border-top: 6px solid #245442;
+                    border-radius: 14px;
+                    background: #fffaf0;
                     color: #302e26;
                     font-family: inherit;
                     text-align: left;
@@ -120,33 +77,35 @@
 
                 .showcase .menu-title {
                     margin: 0;
-                    color: var(--herb);
-                    font-size: clamp(26px, 5vw, 38px);
-                    line-height: 1.15;
+                    color: #245442;
+                    font-size: 28px;
                 }
 
                 .showcase .menu-hint {
-                    margin-top: 5px;
-                    font-size: 15px;
+                    margin: 4px 0 16px;
                 }
 
                 .showcase .dish-buttons {
                     display: grid;
                     grid-template-columns: repeat(3, minmax(0, 1fr));
-                    gap: 6px;
-                    margin: 18px 0;
+                    gap: 8px;
                 }
 
                 .showcase .dish-buttons button {
-                    min-height: 44px;
-                    padding: 6px 3px;
-                    border: 1px solid var(--herb);
-                    border-radius: 8px;
-                    background: transparent;
-                    color: var(--herb);
+                    padding: 10px 4px;
+                    border: 1px solid #245442;
+                    border-radius: 10px;
+                    background: #fffdf8;
+                    color: #245442;
                     font: inherit;
                     font-weight: bold;
                     cursor: pointer;
+                }
+
+                .showcase .dish-icon {
+                    display: block;
+                    margin-bottom: 4px;
+                    font-size: 28px;
                 }
 
                 .showcase .dish-buttons button:hover {
@@ -154,84 +113,43 @@
                 }
 
                 .showcase .dish-buttons button[aria-pressed="true"] {
-                    background: var(--herb);
+                    background: #245442;
                     color: white;
                 }
 
                 .showcase .dish-buttons button:focus-visible {
-                    outline: 3px solid var(--chili);
+                    outline: 3px solid #a43c29;
                     outline-offset: 2px;
                 }
 
-                .showcase .dish-card {
-                    display: grid;
-                    grid-template-columns: auto minmax(0, 1fr);
-                    align-items: start;
-                    gap: clamp(10px, 3vw, 20px);
-                    padding-top: 18px;
-                    border-top: 1px dashed #b7a88d;
-                }
-
-                .showcase .dish-card[hidden] {
-                    display: none;
-                }
-
-                .showcase .dish-plate {
-                    display: grid;
-                    place-items: center;
-                    width: clamp(44px, 10vw, 72px);
-                    aspect-ratio: 1;
-                    border: 4px double var(--herb);
-                    border-radius: 50%;
-                    background: #f1f4e8;
-                    font-size: clamp(24px, 5vw, 38px);
-                }
-
-                .showcase .dish-name {
-                    margin: 0;
-                    color: var(--chili);
-                    font-size: 24px;
-                    line-height: 1.2;
-                }
-
-                .showcase .dish-subtitle {
-                    margin: 3px 0 8px;
-                    color: var(--herb);
-                    font-size: 14px;
-                    font-weight: bold;
-                }
-
-                .showcase .dish-fact {
-                    font-size: 16px;
-                    line-height: 1.45;
+                .showcase .dish-fact:not(:empty) {
+                    margin-top: 16px;
+                    padding: 4px 0 4px 12px;
+                    border-left: 3px solid #a43c29;
+                    line-height: 1.5;
                 }
             </style>
 
-            <!-- JavaScript: Show the card that matches the button you click. -->
+            <!-- JavaScript: Show the chosen fact and highlight its button. -->
             <script>
-                {
-                    const showcase = document.currentScript.closest(".showcase");
-                    const buttons = showcase.querySelectorAll(".dish-buttons button");
-                    const cards = showcase.querySelectorAll(".dish-card");
+                const dishButtons = document.querySelectorAll(".showcase .dish-buttons button");
+                const factBox = document.getElementById("dish-fact");
 
-                    for (const button of buttons) {
-                        button.addEventListener("click", function () {
-                            const chosenCard = button.getAttribute("aria-controls");
+                for (const button of dishButtons) {
+                    button.addEventListener("click", function () {
+                        factBox.textContent = button.dataset.fact;
 
-                            for (const card of cards) {
-                                card.hidden = card.id !== chosenCard;
-                            }
-
-                            for (const item of buttons) {
-                                item.setAttribute("aria-pressed", item === button);
-                            }
-                        });
-                    }
+                        for (const item of dishButtons) {
+                            item.setAttribute("aria-pressed", item === button);
+                        }
+                    });
                 }
             </script>
+
         </div>
     </main>
 
     <footer>Built by Phu Thanh Nguyen &middot; BMIS 235</footer>
+
 </body>
 </html>
