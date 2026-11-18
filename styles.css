@@ -1,59 +1,80 @@
-/* =====================================================================
-   styles.css  ·  YOUR BRAND
-   ---------------------------------------------------------------------
-   This one file is your brand guide. Every page that links to it gets
-   the same font, the same colors and the same spacing.
-   Change a color here once, and every page changes.
+/* styles.css
+   Author: Phu Thanh Nguyen
+   GU username: YOUR-GU-USERNAME
+   Course: BMIS 235 - HTML-3
+*/
 
-   Use the same font and colors you picked for your Excel menu images,
-   so the menu and the pages look like one brand.
-   ===================================================================== */
-
+/* Font and colors for all four pages */
 body {
-    font-family: Georgia, "Times New Roman", serif;
-    background-color: #f4efe6;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fff8eb;
     color: #2b2b2b;
     margin: 0;
-    padding: 0 20px 40px 20px;
+    padding: 16px 20px 40px;
 }
 
-/* the menu at the top of every page */
+/* Menu at the top of each page */
 nav {
-    background-color: #2b5d8c;
+    background-color: #10475a;
     padding: 14px;
     text-align: center;
 }
 
-/* every image inside the menu is forced to the same height.
-   If your images still look different sizes, their WIDTHS are
-   different: go back to Excel and make every cell the same size. */
-nav img {
-    height: 50px;
-    margin: 4px;
-    vertical-align: middle;
-}
-
-/* no underline or border around the image links */
 nav a {
     text-decoration: none;
 }
 
-h1 {
-    color: #2b5d8c;
-    text-align: center;
-    font-size: 40px;
+nav img {
+    height: 50px;
+    width: auto;
+    margin: 4px;
+    vertical-align: middle;
 }
 
+/* Page title */
+h1 {
+    color: #155f77;
+    text-align: center;
+    font-size: 36px;
+    margin: 32px auto 16px;
+}
+
+/* Paragraphs */
 p {
     max-width: 600px;
-    margin: 20px auto;
+    margin: 12px auto 20px;
     font-size: 18px;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
+/* Footer */
 footer {
+    margin-top: 40px;
     text-align: center;
     font-size: 14px;
-    color: #777777;
-    margin-top: 40px;
+    color: #555555;
+}
+
+/* New style 1: Round the corners of the menu bar */
+nav {
+    border-radius: 16px;
+}
+
+/* New style 2: Highlight a menu button when you hover or use Tab */
+nav a:hover img,
+nav a:focus-visible img {
+    outline: 3px solid #c9df75;
+    outline-offset: 2px;
+}
+
+/* New style 3: Line up section headings with the text and add a green stripe */
+body > h2,
+main > h2 {
+    box-sizing: border-box;
+    max-width: 600px;
+    margin: 28px auto 8px;
+    padding-left: 12px;
+    border-left: 5px solid #769839;
+    color: #155f77;
+    font-size: 24px;
 }
