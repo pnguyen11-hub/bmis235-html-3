@@ -1,148 +1,297 @@
 <!DOCTYPE html>
 <!--
-  Author: Phu Thanh Nguyen
-  GU username: YOUR-GU-USERNAME
-  Course: BMIS 235 - HTML-3
+    Author: Phu Thanh Nguyen
+    GU username: YOUR-GU-USERNAME
+    Course: BMIS 235 - HTML-3
 -->
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Phu Thanh Nguyen">
-    <title>My Top 3 Vietnamese Dishes</title>
+    <title>Home | My Top 3 Vietnamese Dishes</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <!-- Menu: Each image links to one page. -->
     <nav aria-label="Main menu">
-        <a href="index.html"><img src="img/home.png" alt="Home"></a>
-        <a href="page1.html"><img src="img/page1.png" alt="Cơm Tấm"></a>
-        <a href="page2.html"><img src="img/page2.png" alt="Phở"></a>
-        <a href="page3.html"><img src="img/page3.png" alt="Bún Chả"></a>
+        <a href="index.html" aria-current="page"><img src="img/home.png" alt="Home"></a>
+        <a href="page1.html"><img src="img/page1.png" alt="Com Tam"></a>
+        <a href="page2.html"><img src="img/page2.png" alt="Pho"></a>
+        <a href="page3.html"><img src="img/page3.png" alt="Bun Cha"></a>
     </nav>
 
     <main>
+        <h1>My Top 3 Vietnamese Dishes</h1>
+
         <div class="showcase">
 
-            <!-- HTML: Choose a dish to reveal a fun fact. -->
-            <section class="dish-menu">
-                <h2 class="menu-title">A taste of Vietnam</h2>
-                <div class="menu-hint">Pick a dish to discover a fun fact.</div>
-
-                <div class="dish-buttons" role="group" aria-label="Choose a dish">
-                    <button type="button" aria-pressed="false"
-                            aria-controls="dish-fact"
-                            data-fact="Cơm tấm means broken rice. The small grains give this Saigon favorite its name.">
-                        <span class="dish-icon" aria-hidden="true">🍚</span>
-                        Cơm Tấm
-                    </button>
-
-                    <button type="button" aria-pressed="false"
-                            aria-controls="dish-fact"
-                            data-fact="That warm smell rising from a bowl of beef phở often comes from star anise and cinnamon in the broth.">
-                        <span class="dish-icon" aria-hidden="true">🍜</span>
-                        Phở
-                    </button>
-
-                    <button type="button" aria-pressed="false"
-                            aria-controls="dish-fact"
-                            data-fact="A bowl of bún chả often has two kinds of grilled pork. Look for small pork patties and thin slices of pork belly.">
-                        <span class="dish-icon" aria-hidden="true">🥢</span>
-                        Bún Chả
-                    </button>
+            <!-- HTML: Read the kitchen ticket and choose the dish to serve. -->
+            <section class="order-game" aria-labelledby="game-title">
+                <div class="game-top">
+                    <h2 class="game-title" id="game-title">Guess the Order</h2>
+                    <span class="game-score">Score 0 / 3</span>
                 </div>
 
-                <div id="dish-fact" class="dish-fact" role="status"></div>
+                <div class="game-hint">Read the ticket. Which dish would you serve?</div>
+
+                <div class="game-ticket">
+                    <div class="ticket-number">Kitchen ticket 01 / 03</div>
+                    <div class="ticket-clue" id="ticket-clue"></div>
+                </div>
+
+                <div class="game-choices" role="group" aria-label="Choose a dish"
+                     aria-describedby="ticket-clue">
+                    <button type="button" value="Com Tam">Com Tam</button>
+                    <button type="button" value="Pho">Pho</button>
+                    <button type="button" value="Bun Cha">Bun Cha</button>
+                </div>
+
+                <div class="game-message" role="status"></div>
+                <button type="button" class="game-next" hidden>Next ticket &rarr;</button>
             </section>
 
-            <!-- CSS: Style the menu card, dish buttons, and selected fact. -->
+            <!-- CSS: Give the game a teal background and a cream paper ticket. -->
             <style>
-                .showcase .dish-menu {
+                .showcase .order-game {
                     box-sizing: border-box;
                     width: 100%;
-                    max-width: 580px;
+                    max-width: 590px;
                     max-height: 480px;
                     overflow: auto;
                     margin: 0 auto;
-                    padding: 20px;
-                    border: 1px solid #d8cbb6;
-                    border-top: 6px solid #245442;
-                    border-radius: 14px;
-                    background: #fffaf0;
-                    color: #302e26;
-                    font-family: inherit;
+                    padding: clamp(16px, 4vw, 28px);
+                    border-radius: 18px;
+                    background: #10475a;
+                    color: white;
+                    font-family: Arial, Helvetica, sans-serif;
                     text-align: left;
+                    box-shadow: 0 5px 14px rgba(16, 71, 90, 0.16);
                 }
 
-                .showcase .menu-title {
+                .showcase .game-top {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    gap: 8px;
+                }
+
+                .showcase .game-title {
                     margin: 0;
-                    color: #245442;
-                    font-size: 28px;
+                    color: white;
+                    font-size: clamp(24px, 5vw, 34px);
+                    line-height: 1.1;
                 }
 
-                .showcase .menu-hint {
-                    margin: 4px 0 16px;
+                .showcase .game-score {
+                    padding: 5px 10px;
+                    border-radius: 20px;
+                    background: #c9df75;
+                    color: #173c36;
+                    font-size: 14px;
+                    font-weight: bold;
                 }
 
-                .showcase .dish-buttons {
+                .showcase .game-hint {
+                    margin-top: 8px;
+                    color: #e5f0ee;
+                    font-size: 15px;
+                }
+
+                .showcase .game-ticket {
+                    margin: 16px 0;
+                    padding: 16px 20px;
+                    border-radius: 8px;
+                    background:
+                        radial-gradient(circle at left center, #10475a 6px, transparent 7px),
+                        radial-gradient(circle at right center, #10475a 6px, transparent 7px),
+                        #fff8eb;
+                    color: #173c45;
+                }
+
+                .showcase .ticket-number {
+                    padding-bottom: 8px;
+                    border-bottom: 1px dashed #9caa98;
+                    color: #475d54;
+                    font: bold 13px "Courier New", monospace;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                }
+
+                .showcase .ticket-clue {
+                    margin-top: 10px;
+                    font-size: 18px;
+                    line-height: 1.4;
+                }
+
+                .showcase .game-choices {
                     display: grid;
                     grid-template-columns: repeat(3, minmax(0, 1fr));
                     gap: 8px;
                 }
 
-                .showcase .dish-buttons button {
-                    padding: 10px 4px;
-                    border: 1px solid #245442;
-                    border-radius: 10px;
-                    background: #fffdf8;
-                    color: #245442;
-                    font: inherit;
-                    font-weight: bold;
+                .showcase .order-game button {
+                    min-height: 44px;
+                    padding: 8px 4px;
+                    border: 2px solid transparent;
+                    border-radius: 8px;
+                    font: bold 15px Arial, Helvetica, sans-serif;
                     cursor: pointer;
                 }
 
-                .showcase .dish-icon {
-                    display: block;
-                    margin-bottom: 4px;
-                    font-size: 28px;
+                .showcase .game-choices button {
+                    background: white;
+                    color: #10475a;
                 }
 
-                .showcase .dish-buttons button:hover {
-                    background: #e5eddf;
+                .showcase .game-choices button:hover:enabled {
+                    background: #edf4cd;
                 }
 
-                .showcase .dish-buttons button[aria-pressed="true"] {
-                    background: #245442;
-                    color: white;
+                .showcase .game-choices button.correct {
+                    background: #c9df75;
+                    color: #173c36;
                 }
 
-                .showcase .dish-buttons button:focus-visible {
-                    outline: 3px solid #a43c29;
+                .showcase .game-choices button:disabled {
+                    cursor: default;
+                }
+
+                .showcase .order-game button:focus-visible {
+                    outline: 3px solid #fff8eb;
                     outline-offset: 2px;
                 }
 
-                .showcase .dish-fact:not(:empty) {
-                    margin-top: 16px;
-                    padding: 4px 0 4px 12px;
-                    border-left: 3px solid #a43c29;
-                    line-height: 1.5;
+                .showcase .game-message:not(:empty) {
+                    margin-top: 14px;
+                    line-height: 1.4;
+                }
+
+                .showcase .game-next {
+                    margin-top: 8px;
+                    background: transparent;
+                    color: #deef9a;
+                    text-decoration: underline;
+                    text-underline-offset: 4px;
                 }
             </style>
 
-            <!-- JavaScript: Show the chosen fact and highlight its button. -->
+            <!-- JavaScript: Mix up the orders, check each answer, and keep score. -->
             <script>
-                const dishButtons = document.querySelectorAll(".showcase .dish-buttons button");
-                const factBox = document.getElementById("dish-fact");
+                {
+                    const game = document.currentScript.closest(".showcase");
+                    const choices = game.querySelectorAll(".game-choices button");
+                    const ticket = game.querySelector(".ticket-number");
+                    const clue = game.querySelector(".ticket-clue");
+                    const scoreLabel = game.querySelector(".game-score");
+                    const message = game.querySelector(".game-message");
+                    const next = game.querySelector(".game-next");
 
-                for (const button of dishButtons) {
-                    button.addEventListener("click", function () {
-                        factBox.textContent = button.dataset.fact;
-
-                        for (const item of dishButtons) {
-                            item.setAttribute("aria-pressed", item === button);
+                    const menu = [
+                        {
+                            name: "Com Tam",
+                            clues: [
+                                "I'd like grilled pork over tiny grains of broken rice. A fried egg on top, please!",
+                                "I'll have the Saigon rice plate. The little broken grains are my favorite part."
+                            ]
+                        },
+                        {
+                            name: "Pho",
+                            clues: [
+                                "I'd like flat rice noodles in hot broth. Could you add thin slices of beef?",
+                                "One bowl of noodle soup, please. I love the smell of star anise in the broth."
+                            ]
+                        },
+                        {
+                            name: "Bun Cha",
+                            clues: [
+                                "I'll have the Hanoi dish with grilled pork patties. Leave the noodles on the side so I can dip them.",
+                                "I'd like rice noodles and fresh herbs, with a separate bowl of grilled pork in sweet and sour dipping sauce."
+                            ]
                         }
+                    ];
+
+                    let orders = [];
+                    let round = 0;
+                    let score = 0;
+
+                    function startGame() {
+                        const remaining = menu.slice();
+                        orders = [];
+                        round = 0;
+                        score = 0;
+
+                        // Pick each dish once so every game has three different orders.
+                        while (remaining.length > 0) {
+                            const pick = Math.floor(Math.random() * remaining.length);
+                            const dish = remaining.splice(pick, 1)[0];
+                            orders.push(dish);
+                        }
+
+                        scoreLabel.textContent = "Score 0 / 3";
+                        showTicket();
+                    }
+
+                    function showTicket() {
+                        const dish = orders[round];
+                        const pick = Math.floor(Math.random() * dish.clues.length);
+
+                        ticket.textContent = "Kitchen ticket 0" + (round + 1) + " / 03";
+                        clue.textContent = dish.clues[pick];
+                        message.textContent = "";
+                        next.hidden = true;
+
+                        for (const button of choices) {
+                            button.disabled = false;
+                            button.classList.remove("correct");
+                        }
+                    }
+
+                    for (const button of choices) {
+                        button.addEventListener("click", function () {
+                            const answer = orders[round].name;
+
+                            if (button.value === answer) {
+                                score++;
+                                message.textContent = "Order up! " + answer + " is the right dish.";
+                            } else {
+                                message.textContent = "You served " + button.value +
+                                    ". The customer ordered " + answer + ".";
+                            }
+
+                            for (const choice of choices) {
+                                choice.disabled = true;
+                                choice.classList.toggle("correct", choice.value === answer);
+                            }
+
+                            scoreLabel.textContent = "Score " + score + " / 3";
+
+                            if (round === orders.length - 1) {
+                                message.textContent += " Final score: " + score + " out of 3.";
+                                next.textContent = "Play again ↻";
+                            } else {
+                                next.textContent = "Next ticket →";
+                            }
+
+                            next.hidden = false;
+                            next.focus();
+                        });
+                    }
+
+                    next.addEventListener("click", function () {
+                        if (round === orders.length - 1) {
+                            startGame();
+                        } else {
+                            round++;
+                            showTicket();
+                        }
+
+                        choices[0].focus();
                     });
+
+                    startGame();
                 }
             </script>
 
