@@ -7,15 +7,15 @@
 /* Font and colors for all four pages */
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #fff4ed;
-    color: #30232b;
+    background-color: #fff7df;
+    color: #332b24;
     margin: 0;
     padding: 16px 20px 40px;
 }
 
 /* Menu at the top of each page */
 nav {
-    background-color: #50243d;
+    background-color: #9e3428;
     padding: 14px;
     text-align: center;
 }
@@ -33,7 +33,7 @@ nav img {
 
 /* Page title */
 h1 {
-    color: #752e4d;
+    color: #963326;
     text-align: center;
     font-size: 36px;
     margin: 32px auto 16px;
@@ -52,7 +52,7 @@ footer {
     margin-top: 40px;
     text-align: center;
     font-size: 14px;
-    color: #68545e;
+    color: #63584b;
 }
 
 /* New style 1: Round the corners of the menu bar */
@@ -63,18 +63,18 @@ nav {
 /* New style 2: Highlight a menu button when you hover or use Tab */
 nav a:hover img,
 nav a:focus-visible img {
-    outline: 3px solid #ffcf72;
+    outline: 3px solid #daf0b7;
     outline-offset: 2px;
 }
 
-/* New style 3: Line up section headings with the text and add a gold stripe */
+/* New style 3: Line up section headings with the text and add a green stripe */
 body > h2,
 main > h2 {
     box-sizing: border-box;
     max-width: 600px;
     margin: 28px auto 8px;
     padding-left: 12px;
-    border-left: 5px solid #c48827;
-    color: #752e4d;
+    border-left: 5px solid #638442;
+    color: #36582e;
     font-size: 24px;
 }
