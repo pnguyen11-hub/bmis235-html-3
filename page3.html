@@ -1,54 +1,87 @@
 
-<!DOCTYPE html>
-<!--
-  Author: Nguyen Phu Thanh
-  GU username: YOUR-GU-USERNAME
-  Course: BMIS 235 - HTML-3
--->
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="author" content="Nguyen Phu Thanh">
-<title>Bun Cha - Vietnamese Food</title>
+<!-- HTML: Three Vietnamese food buttons -->
+<h2>My Top 3 Vietnamese Dishes</h2>
+<p>Click a dish to discover a fun fact!</p>
 
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<div class="food-buttons">
+    <button onclick="showDish('comtam')">
+        🍚 Com Tam
+    </button>
 
-<!-- Menu -->
-<nav>
-    <a href="index.html"><img src="img/home.png" alt="Home"></a>
-    <a href="page1.html"><img src="img/page1.png" alt="Com Tam"></a>
-    <a href="page2.html"><img src="img/page2.png" alt="Pho"></a>
-    <a href="page3.html"><img src="img/page3.png" alt="Bun Cha"></a>
-</nav>
+    <button onclick="showDish('pho')">
+        🍜 Pho
+    </button>
 
-<h1>Bun Cha (Grilled Pork with Noodles)</h1>
+    <button onclick="showDish('buncha')">
+        🥢 Bun Cha
+    </button>
+</div>
 
-<p>Bun Cha is a traditional Vietnamese dish
-from Hanoi, the capital of Vietnam.
-It is one of my favorite Vietnamese foods
-because of its unique flavors.</p>
+<div class="food-info">
+    <h3 id="food-name">Choose a dish!</h3>
+    <p id="food-fact">
+        Click one of the buttons above to learn more.
+    </p>
+</div>
 
-<h2>What is Bun Cha?</h2>
+<!-- CSS: Colors and design for the food graphic -->
+<style>
+.showcase {
+    font-family: Arial, sans-serif;
+    background-color: #8B2E1F;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+}
 
-<p>Bun Cha is made with grilled pork, rice noodles,
-fresh herbs, and a bowl of sweet and savory
-fish sauce. The pork is grilled until it is
-slightly crispy and full of flavor.</p>
+.showcase .food-buttons button {
+    background-color: #FFE6A7;
+    color: black;
+    border: none;
+    padding: 15px;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-<h2>Why I Love It</h2>
+.showcase .food-buttons button:hover {
+    background-color: #FFC857;
+}
 
-<p>I love Bun Cha because the combination of
-grilled pork, fresh noodles, and fish sauce
-tastes amazing. Even though I grew up in
-Southern Vietnam, I have always enjoyed
-this dish from Northern Vietnam.
-It reminds me of the different food traditions
-across my home country.</p>
+.showcase .food-info {
+    background-color: white;
+    color: black;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+</style>
 
-<!-- Footer -->
-<footer>Built by Nguyen Phu Thanh &middot; BMIS 235</footer>
+<!-- JavaScript: Show a fun fact when a dish is clicked -->
+<script>
+function showDish(dish) {
 
-</body>
-</html>
+    if (dish == "comtam") {
+        document.getElementById("food-name").innerText =
+            "Com Tam (Broken Rice)";
+        document.getElementById("food-fact").innerText =
+            "Fun fact: Com Tam is made from broken rice grains and is especially popular in Southern Vietnam!";
+    }
+
+    if (dish == "pho") {
+        document.getElementById("food-name").innerText =
+            "Pho (Vietnamese Noodle Soup)";
+        document.getElementById("food-fact").innerText =
+            "Fun fact: Pho broth is often cooked for hours to create its rich flavor!";
+    }
+
+    if (dish == "buncha") {
+        document.getElementById("food-name").innerText =
+            "Bun Cha (Grilled Pork with Noodles)";
+        document.getElementById("food-fact").innerText =
+            "Fun fact: Bun Cha comes from Hanoi and is famous for its grilled pork and dipping sauce!";
+    }
+}
+</script>
